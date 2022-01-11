@@ -1,0 +1,109 @@
+<div class="card">
+    <div class="card-header">{{title}}</div>
+    <form class="p-4" [formGroup]="formAdd">
+        <div class="mb-3">
+            <label class="form-label">ID </label>
+            <input  #companyName 
+                    formControlName="id"
+                    [ngClass]="{'is-invalid': form.id.touched && form.id.errors}"
+                    type="number" 
+                    class="form-control"
+                    name="companyName"
+                    required 
+            />
+            <div *ngIf="form.id.touched && form.id.errors"    class="invalid-feedback">
+                <div *ngIf="form.id.errors.required">
+                    Is required
+                </div>
+                <div *ngIf="form.id.errors.max">
+                   7 digit max 
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Name </label>
+            <input  #companyName 
+                    formControlName="name"
+                    [ngClass]="{'is-invalid': form.name.touched && form.name.errors}"
+                    type="text" 
+                    class="form-control"
+                    name="companyName"
+                    required 
+            />
+            <div *ngIf="form.name.touched && form.name.errors"    class="invalid-feedback">
+                <div *ngIf="form.name.errors.required">
+                    Is required
+                </div>
+                <div *ngIf="form.name.errors.maxlength">
+                    40 characters max 
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name </label>
+            <input  #companyName 
+                    formControlName="lastName"
+                    [ngClass]="{'is-invalid': form.lastName.touched && form.lastName.errors}"
+                    type="text" 
+                    class="form-control"
+                    name="companyName"
+                    required 
+            />
+            <div *ngIf="form.lastName.touched && form.lastName.errors"    class="invalid-feedback">
+                <div *ngIf="form.lastName.errors.required">
+                    Is required
+                </div>
+                <div *ngIf="form.lastName.errors.maxlength">
+                    40 characters max 
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address </label>
+            <input  #companyName 
+                    formControlName="address"
+                    [ngClass]="{'is-invalid': form.address.touched && form.address.errors}"
+                    type="text" 
+                    class="form-control"
+                    name="companyName"
+                    required 
+            />
+            <div *ngIf="form.address.touched && form.address.errors"    class="invalid-feedback">
+                <div *ngIf="form.address.errors.required">
+                    Is required
+                </div>
+                <div *ngIf="form.address.errors.maxlength">
+                    40 characters max 
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone </label>
+            <input  formControlName="phone" 
+                    [ngClass]="{'is-invalid': form.phone.touched && form.phone.errors}"
+                    type="text"
+                    class="form-control" 
+                    required
+            />
+            <div *ngIf="form.phone.touched && form.phone.errors" class="invalid-feedback">
+                <div *ngIf="form.phone.errors.required">
+                    Is required
+                </div>
+                <div *ngIf="form.phone.errors.minlength">
+                    8 digits min
+                </div>
+                <div *ngIf="form.phone.errors.maxlength">
+                    10 digits max
+                </div>
+                <div *ngIf="form.phone.errors.pattern">
+                    Must contain only numbers
+                </div>
+            </div>
+        </div>
+        <div class="d-grid" #divButtons>
+            <input type="button" (click)="onClickClear()" class="btn btn-info m-1" value="Clear">
+            <input *ngIf="actionAdd" #action type="button" (click)="addPerson()" class="btn btn-success m-1" value="Add" name="Add" [disabled]="formAdd.invalid">
+            <input *ngIf="actionUpdate" #action type="button" (click)="update()" class="btn btn-info m-1" value="Update" name="Add" [disabled]="formAdd.invalid">
+        </div>
+    </form>
+</div>

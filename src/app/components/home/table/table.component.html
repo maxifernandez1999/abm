@@ -1,0 +1,34 @@
+<div class="card">
+	<div class="card-header">
+	    List of People
+	</div>
+	<div class="p-4">
+	    <table class="table align-middle">
+		  <thead>
+			<tr>
+			    <th scope="col">ID</th>
+			    <th scope="col">Name</th>
+			    <th scope="col">lastName</th>
+			    <th scope="col">Address</th>
+			    <th scope="col">Phone</th>
+			    <th scope="col" colspan="2">Actions</th>
+			</tr>
+		  </thead>
+		  <tbody *ngFor="let person of list">
+			<tr>
+				
+				<td>{{person.Id}}</td>
+				<td>{{person.Name}}</td>
+				<td>{{person.LastName}}</td>
+				<td>{{person.Address}}</td>
+				<td>{{person.Phone}}</td>
+				<td>
+					<a href="" (click)="sendDataToServiceUpdate(person)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+					<a href="#deleteModal" class="delete" (click)="sendDataToServiceDelete(person)"data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+				</td>
+			</tr>
+		</tbody>
+	    </table>
+	    
+	</div>
+  </div>
